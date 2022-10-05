@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "882780756177",
+    "project_id": "smart-cm-mobile-8060e",
+    "storage_bucket": "smart-cm-mobile-8060e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:882780756177:android:31869b9a5ca7d500b00df0",
+        "android_client_info": {
+          "package_name": "com.smart_cm_mobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "882780756177-nsh5t0e458j7vpsmm89ea34e5cbjrkqa.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.smart_cm_mobile",
+            "certificate_hash": "5d0d8e589a9ce22848206b0df5e7bc60a29aaa4d"
+          }
+        },
+        {
+          "client_id": "882780756177-6oillgi9iht3ivnrjheup5gnlgdedvab.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-3GCUN57ZTcmlEXIaibBzTwZ4cKMzpyg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "882780756177-6oillgi9iht3ivnrjheup5gnlgdedvab.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
