@@ -10,7 +10,7 @@ export const EventsData = [
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book ",
     date: '2022-05-12',
     duration: '12:00 - 15:00',
-    location: 'Meeting room 306',
+    room: 'Meeting room 306',
     color: '#EF988F',
   },
   {
@@ -22,7 +22,7 @@ export const EventsData = [
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book ",
     date: '2022-04-21',
     duration: '12:00 - 15:00',
-    location: 'Meeting room 306',
+    room: 'Meeting room 306',
     color: '#92BEFA',
   },
   {
@@ -34,7 +34,7 @@ export const EventsData = [
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book ",
     date: '2022-05-02',
     duration: '12:00 - 15:00',
-    location: 'Meeting room 306',
+    room: 'Meeting room 306',
     color: '#F4C584',
   },
   {
@@ -46,7 +46,7 @@ export const EventsData = [
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book ",
     date: '2022-10-20',
     duration: '12:00 - 15:00',
-    location: 'Meeting room 306',
+    room: 'Meeting room 306',
     color: '#19B3A6',
   },
   {
@@ -58,7 +58,7 @@ export const EventsData = [
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book ",
     date: '2022-03-16',
     duration: '12:00 - 15:00',
-    location: 'Meeting room 306',
+    room: 'Meeting room 306',
     color: '#F4C584',
   },
   {
@@ -70,7 +70,7 @@ export const EventsData = [
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book ",
     date: '2022-02-10',
     duration: '12:00 - 15:00',
-    location: 'Meeting room 306',
+    room: 'Meeting room 306',
     color: '#92BEFA',
   },
   {
@@ -82,7 +82,7 @@ export const EventsData = [
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book ",
     date: '2022-05-05',
     duration: '12:00 - 15:00',
-    location: 'Meeting room 306',
+    room: 'Meeting room 306',
     color: '#EF988F',
   },
   {
@@ -94,7 +94,7 @@ export const EventsData = [
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book ",
     date: '2022-07-12',
     duration: '12:00 - 15:00',
-    location: 'Meeting room 306',
+    room: 'Meeting room 306',
     color: '#92BEFA',
   },
   {
@@ -106,7 +106,7 @@ export const EventsData = [
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book ",
     date: '2022-10-05',
     duration: '12:00 - 15:00',
-    location: 'Meeting room 306',
+    room: 'Meeting room 306',
     color: '#19B3A6',
   },
   {
@@ -118,7 +118,7 @@ export const EventsData = [
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book ",
     date: '2022-04-09',
     duration: '12:00 - 15:00',
-    location: 'Meeting room 306',
+    room: 'Meeting room 306',
     color: '#EF988F',
   },
   {
@@ -130,7 +130,7 @@ export const EventsData = [
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book ",
     date: '2022-08-18',
     duration: '12:00 - 15:00',
-    location: 'Meeting room 306',
+    room: 'Meeting room 306',
     color: '#F4C584',
   },
 ];

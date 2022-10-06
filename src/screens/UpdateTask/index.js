@@ -20,11 +20,12 @@ import {DELETE_TASK, UPDATE_TASK} from '../../store/actions/types/taskTypes';
 import dispatch from '../../hook/dispatch/dispatch';
 
 function UpdateTask(props) {
-  const anun = 'Project';
-  const amsativ = 'Date';
-  const dur = 'Duration';
+  const anun = 'project';
+  const amsativ = 'date';
+  const dur = 'duration';
   const item = props.route.params.item;
-  const [data, setData] = useState({});
+  console.log(item);
+  const [data, setData] = useState({...item});
   const [project, setProject] = useState(false);
   const [date, setDate] = useState(false);
   const [duration, setDuration] = useState(false);
@@ -41,8 +42,8 @@ function UpdateTask(props) {
         tabBarStyle: {display: 'flex'},
       });
     }
-    setData({...data, ['id']: item.id});
   }, [project, date, duration]);
+
   return (
     <KeyboardAvoidingView style={styles.container}>
       <TouchableOpacity
@@ -67,7 +68,7 @@ function UpdateTask(props) {
         onPress={() => {
           setProject(!project);
         }}>
-        <Text style={styles.input}>{data.Project || item.project}</Text>
+        <Text style={styles.input}>{data.project || item.project}</Text>
         <View style={styles.touch}>
           <ArrowBottom />
         </View>
@@ -78,7 +79,7 @@ function UpdateTask(props) {
         onPress={() => {
           setDate(!date);
         }}>
-        <Text style={styles.input}>{data.Date || item.date}</Text>
+        <Text style={styles.input}>{data.date || item.date}</Text>
         <View style={styles.touch}>
           <Calendar1Icon />
         </View>
@@ -88,7 +89,7 @@ function UpdateTask(props) {
         onPress={() => {
           setDuration(!duration);
         }}>
-        <Text style={styles.input}>{data.Duration || item.duration}</Text>
+        <Text style={styles.input}>{data.duration || item.duration}</Text>
         <View style={styles.touch}>
           <ArrowBottom />
         </View>

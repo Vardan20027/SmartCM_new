@@ -11,12 +11,13 @@ import {Sizes} from '../../../assets/RootStyle';
 import CalendarComp from '../Calendar';
 import * as RootNavigation from '../../../navigation/RootNavigation';
 import moment from 'moment';
+import {useSelector} from 'react-redux';
 
 function Events(props) {
   const ref = useRef(null);
   const scrollToTop = () => ref.current.scrollToIndex({index: 0});
   const styles = EventStyles();
-  const Events = [...props.EventsDATA];
+  const Events = props.EventsList;
   const sortedEvents = Events.sort(
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
   );
@@ -32,7 +33,7 @@ function Events(props) {
             <Text style={styles.date}>
               {moment(item.date).format('MMM DD, YYYY')} | {item.duration}
             </Text>
-            <Text style={styles.date}> {item.location}</Text>
+            <Text style={styles.date}> {item.room}</Text>
           </View>
         </View>
       </View>
@@ -47,8 +48,7 @@ function Events(props) {
               <CalendarComp
                 scrollToTop={scrollToTop}
                 {...props}
-                EventsDATA={props.EventsDATA}
-                TasksDATA={props.TasksDATA}
+                Events={Events}
               />
             ) : null
           }

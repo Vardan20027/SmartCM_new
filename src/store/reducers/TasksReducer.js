@@ -24,20 +24,24 @@ export default function reducer(state = defaultState, {type, payload}) {
         list: [...arrTasks],
       };
     }
-    case UPDATE_TASK: {
+    case UPDATE_TASK:
       const array = state.list.map(object => {
         if (object.id === payload.id) {
-          object.date = payload.Date;
-          object.duration = payload.Duration;
-          object.project = payload.Project;
+          return {
+            ...object,
+            date: payload.date,
+            project: payload.project,
+            duration: payload.duration,
+          };
+        } else {
+          return object;
         }
       });
-
       return {
         ...state,
         list: [...array],
       };
-    }
+
     default: {
       return state;
     }

@@ -16,7 +16,6 @@ function DateBtSheet({date, setDate, amsativ, data, setData}) {
     // console.log('handleSheetChanges', index);
   }, []);
   const styles = Styles();
-  console.log(data.Date);
   return (
     <GestureHandlerRootView style={styles.page}>
       <View style={styles.container}>

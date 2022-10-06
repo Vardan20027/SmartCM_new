@@ -25,7 +25,7 @@ function HistoryEvents(props) {
             <Text style={eventStyles.date}>
               {moment(item.date).format('MMM DD, YYYY')} | {item.duration}
             </Text>
-            <Text style={eventStyles.date}> {item.location}</Text>
+            <Text style={eventStyles.date}> {item.room}</Text>
           </View>
         </View>
       </View>

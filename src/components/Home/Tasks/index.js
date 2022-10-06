@@ -17,7 +17,7 @@ function Tasks(props) {
   const ref = useRef(null);
   const scrollToTop = () => ref.current.scrollToIndex({index: 0});
   const styles = TaskStyles();
-  const Tasks = useSelector(state => state.tasks.list);
+  const Tasks = props.TasksList;
   const sortedTasks = Tasks.sort(
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
   );
@@ -60,8 +60,7 @@ function Tasks(props) {
               <CalendarComp
                 scrollToTop={scrollToTop}
                 {...props}
-                EventsDATA={props.EventsDATA}
-                TasksDATA={props.TasksDATA}
+                Tasks={Tasks}
               />
             ) : null
           }

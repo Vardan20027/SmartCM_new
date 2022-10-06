@@ -38,7 +38,7 @@ function EventInfo(props) {
             <View style={styles.info_icon}>
               <LocatIcon iconColor={'#347474'} />
             </View>
-            <Text style={styles.info}>{event.location}</Text>
+            <Text style={styles.info}>{event.room}</Text>
           </View>
           <View style={styles.info_container}>
             <View style={styles.info_icon}>

@@ -20,9 +20,9 @@ import {CREATE_TASK} from '../../store/actions/types/taskTypes';
 import * as navigation from '../../navigation/RootNavigation';
 
 function CreateTask(props) {
-  const anun = 'Project';
-  const amsativ = 'Date';
-  const dur = 'Duration';
+  const anun = 'project';
+  const amsativ = 'date';
+  const dur = 'duration';
   const task = props.route.params.task;
   const setTask = props.route.params.setTask;
   const [project, setProject] = useState(false);
@@ -30,6 +30,7 @@ function CreateTask(props) {
   const [duration, setDuration] = useState(false);
   const [great, setGreat] = useState(false);
   const [data, setData] = useState({});
+  console.log(1111, data);
   const [value, setValue] = useState('');
   const styles = Styles();
   useEffect(() => {
@@ -45,10 +46,6 @@ function CreateTask(props) {
     }
     setData({...data, ['id']: _.uniqueId});
   }, [project, date, duration, great]);
-  const pressHandler = () => {
-    props.onSubmit(value);
-    setValue(value);
-  };
   useMemo(() => {
     setData({});
   }, [task]);
@@ -72,7 +69,7 @@ function CreateTask(props) {
         onPress={() => {
           setProject(!project);
         }}>
-        <Text style={styles.input}>{data.Project || 'Project*'}</Text>
+        <Text style={styles.input}>{data.project || 'Project*'}</Text>
         <View style={styles.touch}>
           <ArrowBottom />
         </View>
@@ -83,7 +80,7 @@ function CreateTask(props) {
         onPress={() => {
           setDate(!date);
         }}>
-        <Text style={styles.input}>{data.Date || 'Date'}</Text>
+        <Text style={styles.input}>{data.date || 'Date'}</Text>
         <View style={styles.touch}>
           <Calendar1Icon />
         </View>
@@ -93,7 +90,7 @@ function CreateTask(props) {
         onPress={() => {
           setDuration(!duration);
         }}>
-        <Text style={styles.input}>{data.Duration || 'Duration'}</Text>
+        <Text style={styles.input}>{data.duration || 'Duration'}</Text>
         <View style={styles.touch}>
           <ArrowBottom />
         </View>
@@ -102,6 +99,7 @@ function CreateTask(props) {
         style={styles.button}
         onPress={() => {
           dispatch(CREATE_TASK, data);
+          console.log(2222, data);
           navigation.navigate('Home');
         }}>
         <Text style={styles.button_text}>Create</Text>
