@@ -1,7 +1,6 @@
 import React from 'react';
 import {FlatList, Text, TextInput, TouchableOpacity, View} from 'react-native';
 import {Fonts, Sizes} from '../../../assets/RootStyle';
-import {EventsData} from '../../../assets/FakeData';
 import {EventStyles} from '../../../components/Home/Events/style';
 import {Styles} from './style';
 import VictoryEvents from '../Victory/VictoryEvents';
@@ -9,8 +8,10 @@ import UnreadIcon from '../../../assets/icons/unreadIcon';
 import Calendar1Icon from '../../../assets/icons/calendar1';
 import * as RootNavigation from '../../../navigation/RootNavigation';
 import moment from 'moment';
+import {useSelector} from 'react-redux';
 
 function HistoryEvents(props) {
+  const DATA = useSelector(state => state.events.list);
   const eventStyles = EventStyles();
   const styles = Styles();
   const renderItem = ({item}) => (
@@ -82,7 +83,7 @@ function HistoryEvents(props) {
       </View>
       <View style={styles.events_list}>
         <FlatList
-          data={EventsData}
+          data={DATA}
           renderItem={renderItem}
           keyExtractor={item => item.id}
         />

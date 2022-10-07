@@ -25,7 +25,7 @@ const Styles = () => {
     },
     calendar: {
       width: Sizes.size320,
-      height: Sizes.size320,
+      minHeight: Sizes.size320,
       marginTop: Sizes.size15,
       borderRadius: Sizes.size6,
       shadowColor: '#000',
@@ -40,7 +40,7 @@ const Styles = () => {
     calendar_2: {
       flex: 1,
       width: Sizes.size368,
-      height: Sizes.size390,
+      minHeight: Sizes.size390,
       backgroundColor: '#F5F5F5',
     },
   });

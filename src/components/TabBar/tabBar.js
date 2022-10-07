@@ -1,7 +1,7 @@
-import React, {useState, useRef} from 'react';
-import {View, Pressable, Animated} from 'react-native';
+import React, {useRef, useState} from 'react';
+import {Animated, Pressable, View} from 'react-native';
 import {Sizes} from '../../assets/RootStyle';
-import {styles} from './tabStyle';
+import {Styles} from './tabStyle';
 import HomeIcon from '../../assets/icons/homeIcon';
 import NotifIcon from '../../assets/icons/notifIcon';
 import ActivityIcon from '../../assets/icons/activityIcon';
@@ -12,15 +12,7 @@ import TabBarBackground from '../../assets/icons/TabBarBackground';
 // export const refBar = React.createRef(null);
 
 function TabBar({state, descriptors, navigation}) {
-  const {
-    container,
-    container2,
-    content,
-    background,
-    focusedSt,
-    unFocusedSt,
-    tabbarSt,
-  } = styles();
+  const styles = Styles();
   const [oneRender, setOneRender] = useState(false);
   const [f, setF] = useState(true);
 
@@ -95,7 +87,7 @@ function TabBar({state, descriptors, navigation}) {
 
   return (
     <View>
-      <View style={tabbarSt}>
+      <View style={styles.tabBar}>
         <AddButton
           f={f}
           setF={setF}
@@ -112,11 +104,11 @@ function TabBar({state, descriptors, navigation}) {
           setOneRender={setOneRender}
         />
       </View>
-      <Pressable style={container}>
-        <TabBarBackground style={background} />
+      <Pressable style={styles.container}>
+        <TabBarBackground style={styles.background} />
       </Pressable>
 
-      <View style={content}>
+      <View style={styles.content}>
         {state.routes.map((route, index) => {
           const {options} = descriptors[route.key];
           const isFocused = state.index === index;
@@ -163,9 +155,12 @@ function TabBar({state, descriptors, navigation}) {
               testID={options.tabBarTestID}
               onPress={onPress}
               onLongPress={onLongPress}
-              style={container2}
+              style={styles.icons_container}
               key={route.key}>
-              <View style={isFocused && f ? focusedSt : unFocusedSt}>
+              <View
+                style={
+                  isFocused && f ? styles.focused_icon : styles.unfocused_icon
+                }>
                 {Svg[route.name]}
               </View>
             </Pressable>

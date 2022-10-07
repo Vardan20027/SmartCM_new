@@ -1,8 +1,7 @@
-import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
+import React, {useCallback, useMemo, useRef, useState} from 'react';
 import {FlatList, Text, TouchableOpacity, View} from 'react-native';
 import BottomSheet from '@gorhom/bottom-sheet';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
-import {styles} from './style';
 import CheckBox from '@react-native-community/checkbox';
 import CloseIcon from '../../../../assets/icons/closeIcon';
 import {Sizes} from '../../../../assets/RootStyle';
@@ -14,7 +13,7 @@ function TypeBtSheet({
   setItemData,
   setData,
   data,
-  tesak,
+  Type,
   itemData,
 }) {
   const [isActive, setIsActive] = useState(false);
@@ -63,10 +62,10 @@ function TypeBtSheet({
     <>
       <TouchableOpacity
         style={view}
-        onPress={() => handleType(item, tesak, item.title)}>
+        onPress={() => handleType(item, Type, item.title)}>
         <CheckBox
           value={isActive === item.id}
-          onValueChange={() => handleType(item, tesak, item.title)}
+          onValueChange={() => handleType(item, Type, item.title)}
         />
         <Text style={viewText}>{item.title}</Text>
       </TouchableOpacity>
@@ -79,6 +78,10 @@ function TypeBtSheet({
         <BottomSheet
           snapPoints={snapPoints}
           ref={sheetRef}
+          enablePanDownToClose={true}
+          onClose={() => {
+            setType(!type);
+          }}
           index={0}
           onChange={handleSheetChanges}>
           <View style={content}>

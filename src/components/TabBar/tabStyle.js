@@ -1,9 +1,9 @@
 import {StyleSheet} from 'react-native';
 import {Sizes} from '../../assets/RootStyle';
 
-const styles = () => {
+const Styles = () => {
   return StyleSheet.create({
-    tabbarSt: {
+    tabBar: {
       alignItems: 'center',
       justifyContent: 'center',
       position: 'absolute',
@@ -27,13 +27,13 @@ const styles = () => {
       flexDirection: 'row',
       marginBottom: Sizes.size10,
     },
-    container2: {
+    icons_container: {
       flex: 1,
       alignItems: 'center',
       zIndex: 1,
-      marginTop: -60,
+      marginTop: Sizes.size60 * -1,
     },
-    focusedSt: {
+    focused_icon: {
       width: Sizes.size44,
       height: Sizes.size44,
       backgroundColor: '#FFFFFF',
@@ -41,7 +41,7 @@ const styles = () => {
       justifyContent: 'center',
       borderRadius: Sizes.size50,
     },
-    unFocusedSt: {
+    unfocused_icon: {
       width: Sizes.size44,
       height: Sizes.size44,
       alignItems: 'center',
@@ -50,4 +50,4 @@ const styles = () => {
   });
 };
 
-export {styles};
+export {Styles};

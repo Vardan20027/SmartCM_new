@@ -6,7 +6,7 @@ import {Styles} from './style';
 import CloseIcon from '../../../assets/icons/closeIcon';
 
 function DurationBtSheet({duration, setDuration, data, setData, dur}) {
-  const snapPoints = useMemo(() => ['50%', '80%', '100%'], []);
+  const snapPoints = useMemo(() => ['60%', '80%', '100%'], []);
   const sheetRef = useRef(null);
   const handleSheetChanges = useCallback((index: number) => {
     // console.log('handleSheetChanges', index);
@@ -68,6 +68,10 @@ function DurationBtSheet({duration, setDuration, data, setData, dur}) {
         <BottomSheet
           snapPoints={snapPoints}
           ref={sheetRef}
+          enablePanDownToClose={true}
+          onClose={() => {
+            setDuration(!duration);
+          }}
           index={0}
           onChange={handleSheetChanges}>
           <View style={styles.content}>
@@ -77,7 +81,7 @@ function DurationBtSheet({duration, setDuration, data, setData, dur}) {
               <CloseIcon />
             </TouchableOpacity>
 
-            <Text style={styles.text1}>Actual Duration</Text>
+            <Text style={styles.title}>Actual Duration</Text>
             <Text style={styles.text2}>
               Select actual duration you spent on this task
             </Text>

@@ -20,17 +20,22 @@ import {DELETE_TASK, UPDATE_TASK} from '../../store/actions/types/taskTypes';
 import dispatch from '../../hook/dispatch/dispatch';
 
 function UpdateTask(props) {
-  const anun = 'project';
-  const amsativ = 'date';
+  const Project = 'project';
+  const Date = 'date';
   const dur = 'duration';
   const item = props.route.params.item;
-  console.log(item);
   const [data, setData] = useState({...item});
   const [project, setProject] = useState(false);
   const [date, setDate] = useState(false);
   const [duration, setDuration] = useState(false);
+  const [color, setColor] = useState(item.color);
+  data.color = color;
 
   const styles = Styles();
+
+  useEffect(() => {
+    setData(props.route.params.item);
+  }, [props.route]);
   useEffect(() => {
     if (date || project || duration) {
       props.navigation.setOptions({
@@ -42,8 +47,11 @@ function UpdateTask(props) {
         tabBarStyle: {display: 'flex'},
       });
     }
-  }, [project, date, duration]);
-
+  }, [project, date, duration, props.navigation]);
+  const onSubmit = () => {
+    setData({});
+    setColor('');
+  };
   return (
     <KeyboardAvoidingView style={styles.container}>
       <TouchableOpacity
@@ -58,9 +66,13 @@ function UpdateTask(props) {
 
       <Text style={styles.text}>Update Task</Text>
       <Pressable style={styles.inpView}>
-        <Input style={styles.input} {...props} placeholder={'Title*'}>
-          <Text>{item.title}</Text>
-        </Input>
+        <Input
+          style={styles.input}
+          {...props}
+          placeholder={'Title*'}
+          value={data.title}
+          onChangeText={text => setData({...data, title: text})}
+        />
       </Pressable>
 
       <TouchableOpacity
@@ -108,6 +120,7 @@ function UpdateTask(props) {
           onPress={() => {
             dispatch(UPDATE_TASK, data);
             navigation.navigate('Home');
+            onSubmit();
           }}>
           <Text style={styles.butText}>Update</Text>
         </TouchableOpacity>
@@ -119,14 +132,15 @@ function UpdateTask(props) {
           setProject={setProject}
           data={data}
           setData={setData}
-          anun={anun}
+          Project={Project}
+          setColor={setColor}
         />
       ) : null}
       {date ? (
         <DateBtSheet
           date={date}
           setDate={setDate}
-          amsativ={amsativ}
+          Date={Date}
           data={data}
           setData={setData}
         />

@@ -1,7 +1,7 @@
 import {StyleSheet} from 'react-native';
 import {Fonts, Sizes} from '../../assets/RootStyle';
 
-const styles = () => {
+const Styles = () => {
   return StyleSheet.create({
     container: {
       marginLeft: Sizes.size20,
@@ -27,4 +27,4 @@ const styles = () => {
   });
 };
 
-export {styles};
+export {Styles};

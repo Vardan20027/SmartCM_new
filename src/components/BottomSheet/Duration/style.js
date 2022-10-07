@@ -95,6 +95,16 @@ const Styles = () => {
       color: '#FCFCFC',
       fontSize: Sizes.size14,
     },
+    title: {
+      fontFamily: Fonts.bold,
+      fontStyle: 'normal',
+      fontWeight: '600',
+      fontSize: Sizes.size16,
+      lineHeight: Sizes.size24,
+      letterSpacing: 0.25,
+      color: '#11493E',
+      marginTop: Sizes.size20,
+    },
   });
 };
 

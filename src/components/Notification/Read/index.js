@@ -1,7 +1,6 @@
 import React from 'react';
 import {Image, Text, TouchableOpacity, View} from 'react-native';
 import {Styles} from '../style';
-import {Sizes} from '../../../assets/RootStyle';
 
 function Read({
   item,
@@ -66,7 +65,9 @@ function Read({
         <View>
           <View style={styles.action}>
             <Text style={styles.text}>
-              {item.role ? 'You' : `${item.name} ${item.surname}`}
+              {item.role && item.action !== 'send'
+                ? 'You'
+                : `${item.name} ${item.surname}`}
             </Text>
             <Text
               style={[
@@ -83,7 +84,9 @@ function Read({
               {item.action}
             </Text>
             <Text style={styles.text}>
-              {item.role ? `${item.name} ${item.surname}'s request` : item.desc}
+              {item.role && item.action !== 'send'
+                ? `${item.name} ${item.surname}'s request`
+                : item.desc}
             </Text>
           </View>
           <View>

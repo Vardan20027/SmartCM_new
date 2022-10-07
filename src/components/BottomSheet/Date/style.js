@@ -10,7 +10,7 @@ const Styles = () => {
     },
     container: {
       flex: 1,
-      padding: 24,
+      padding: Sizes.size24,
       backgroundColor: 'rgba(52, 52, 52, 0.8)',
     },
     content: {
@@ -19,7 +19,7 @@ const Styles = () => {
     },
     calendar: {
       width: Sizes.size320,
-      height: Sizes.size320,
+      minHeight: Sizes.size320,
       marginTop: Sizes.size15,
       borderRadius: Sizes.size6,
       shadowColor: '#000',

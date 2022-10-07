@@ -25,14 +25,14 @@ import {CREATE_EVENT} from '../../store/actions/types/eventTypes';
 import _ from 'lodash';
 
 function CreateEvent(props) {
-  const tesak = 'type';
+  const Type = 'type';
   const org = 'organizer';
   const prts = 'participators';
-  const senyak = 'room';
-  const amsativ = 'date';
+  const Room = 'room';
+  const Date = 'date';
   const dur = 'duration';
-  const [titleText, setTitleText] = useState('');
-  console.log(titleText);
+  const [title, setTitle] = useState('');
+  const [desc, setDesc] = useState('');
   const event = props.route.params.event;
   const [type, setType] = useState(false);
   const [organizer, setOrganizer] = useState(false);
@@ -41,10 +41,18 @@ function CreateEvent(props) {
   const [date, setDate] = useState(false);
   const [duration, setDuration] = useState(false);
   const [great, setGreat] = useState(false);
-  const [data, setData] = useState({title: titleText});
-  console.log(123, data);
+  const [color, setColor] = useState('');
+  const [data, setData] = useState({});
+  data.color = color;
+  data.title = title;
+  data.short_description = desc;
   const styles = Styles();
-
+  const onSubmit = () => {
+    setTitle('');
+    setDesc('');
+    setColor();
+    setData({});
+  };
   useEffect(() => {
     if (
       type ||
@@ -85,7 +93,9 @@ function CreateEvent(props) {
       <Text style={styles.subText}>Choose event type*</Text>
 
       <TouchableOpacity style={styles.inpView} onPress={() => setType(!type)}>
-        <Text style={styles.input}>{data.type || 'Type'}</Text>
+        <Text style={data.type ? styles.input : styles.input_default}>
+          {data.type || 'Type'}
+        </Text>
         <View style={styles.touch}>
           <ArrowBottom />
         </View>
@@ -95,15 +105,17 @@ function CreateEvent(props) {
         <Input
           style={[styles.input, {width: Sizes.size310}]}
           {...props}
-          defaultValue={titleText}
-          onChange={newTitle => setTitleText(newTitle)}
+          value={title}
+          onChangeText={setTitle}
           placeholder="Event Title*"
         />
       </View>
       <TouchableOpacity
         style={styles.inpView}
         onPress={() => setOrganizer(!organizer)}>
-        <Text style={styles.input}>{data.organizer || 'Organizer'}</Text>
+        <Text style={data.organizer ? styles.input : styles.input_default}>
+          {data.organizer || 'Organizer'}
+        </Text>
         <View style={styles.touch}>
           <ArrowBottom />
         </View>
@@ -111,7 +123,7 @@ function CreateEvent(props) {
       <TouchableOpacity
         style={styles.inpView}
         onPress={() => setParticipators(!participators)}>
-        <Text style={styles.input}>
+        <Text style={data.participators ? styles.input : styles.input_default}>
           {data.participators || 'Participators*'}
         </Text>
         <View style={styles.touch}>
@@ -119,13 +131,15 @@ function CreateEvent(props) {
         </View>
       </TouchableOpacity>
       <TouchableOpacity style={styles.inpView} onPress={() => setRoom(!room)}>
-        <Text style={styles.input}>{data.room || 'Room'}</Text>
+        <Text style={data.room ? styles.input : styles.input_default}>
+          {data.room || 'Room'}
+        </Text>
         <View style={styles.touch}>
           <ArrowBottom />
         </View>
       </TouchableOpacity>
       <TouchableOpacity style={styles.inpView}>
-        <Text style={styles.input}>1 Alek Manukyan, Gyumri</Text>
+        <Text style={styles.input_default}>1 Alek Manukyan, Gyumri</Text>
         <View style={styles.touch}>
           <LocatIcon />
         </View>
@@ -135,7 +149,7 @@ function CreateEvent(props) {
         onPress={() => {
           setDate(!date);
         }}>
-        <Text style={styles.input}>
+        <Text style={data.date ? styles.input : styles.input_default}>
           {moment(data.date).format('DD MMM YYYY') || 'Date'}
         </Text>
         <View style={styles.touch}>
@@ -147,7 +161,9 @@ function CreateEvent(props) {
         onPress={() => {
           setDuration(!duration);
         }}>
-        <Text style={styles.input}>{data.duration || 'Duration'}</Text>
+        <Text style={data.duration ? styles.input : styles.input_default}>
+          {data.duration || 'Duration'}
+        </Text>
         <View style={styles.touch}>
           <ArrowBottom />
         </View>
@@ -156,6 +172,9 @@ function CreateEvent(props) {
         <Input
           style={[styles.input, {width: Sizes.size310}]}
           {...props}
+          maxLength={90}
+          value={desc}
+          onChangeText={setDesc}
           placeholder="Description"
         />
       </View>
@@ -163,7 +182,6 @@ function CreateEvent(props) {
         style={styles.button}
         onPress={() => {
           dispatch(CREATE_EVENT, data);
-          console.log(456, data);
           setGreat(!great);
         }}>
         <Text style={styles.butText}>Create</Text>
@@ -172,9 +190,10 @@ function CreateEvent(props) {
         <TypeBtSheet
           type={type}
           setType={setType}
-          tesak={tesak}
+          Type={Type}
           data={data}
           setData={setData}
+          setColor={setColor}
         />
       ) : null}
       {organizer ? (
@@ -190,7 +209,7 @@ function CreateEvent(props) {
         <RoomBtSheet
           room={room}
           setRoom={setRoom}
-          senyak={senyak}
+          Room={Room}
           data={data}
           setData={setData}
         />
@@ -199,7 +218,7 @@ function CreateEvent(props) {
         <DateBtSheet
           date={date}
           setDate={setDate}
-          amsativ={amsativ}
+          Date={Date}
           data={data}
           setData={setData}
         />
@@ -228,6 +247,7 @@ function CreateEvent(props) {
           setGreat={setGreat}
           data={data}
           setData={setData}
+          onSubmit={onSubmit}
         />
       ) : null}
     </KeyboardAvoidingView>

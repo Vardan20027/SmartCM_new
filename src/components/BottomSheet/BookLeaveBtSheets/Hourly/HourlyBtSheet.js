@@ -2,7 +2,7 @@ import React, {useCallback, useMemo, useRef, useState} from 'react';
 import {FlatList, Text, TouchableOpacity, View} from 'react-native';
 import BottomSheet from '@gorhom/bottom-sheet';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
-import {styles} from './style';
+import {Styles} from './style';
 import CloseIcon from '../../../../assets/icons/closeIcon';
 import {Sizes} from '../../../../assets/RootStyle';
 import CalendarIconWhite from '../../../../assets/icons/calendarIconWhite';
@@ -19,7 +19,7 @@ function HourlyBtSheet({
   or,
   data,
   setData,
-  dur,
+  Duration,
 }) {
   const [open, setOpen] = useState(false);
   const [date, setDate] = useState(new Date());
@@ -37,24 +37,7 @@ function HourlyBtSheet({
   const handleHourly = (item, key, name) => {
     setData({...data, [key]: name});
   };
-  const {
-    page,
-    container,
-    container2,
-    content,
-    timeTouch,
-    touchable,
-    text,
-    text1,
-    text2,
-    textFlat,
-    jam,
-    time,
-    close,
-    desc,
-    input,
-    flat,
-  } = styles();
+  const styles = Styles();
   const DATA = [
     {
       id: 0,
@@ -84,38 +67,44 @@ function HourlyBtSheet({
   const renderItem = ({item}) => (
     <>
       <TouchableOpacity
-        style={time}
-        onPress={() => handleHourly(item, dur, item.title)}>
-        <Text style={textFlat}>{item.title}</Text>
+        style={styles.time}
+        onPress={() => handleHourly(item, Duration, item.title)}>
+        <Text style={styles.textFlat}>{item.title}</Text>
       </TouchableOpacity>
     </>
   );
   return (
-    <GestureHandlerRootView style={page}>
-      <View style={container}>
+    <GestureHandlerRootView style={styles.page}>
+      <View style={styles.container}>
         <BottomSheet
           snapPoints={snapPoints}
           ref={sheetRef}
+          enablePanDownToClose={true}
+          onClose={() => {
+            setHourly(!hourly);
+          }}
           index={0}
           onChange={handleSheetChanges}>
-          <View style={content}>
+          <View style={styles.content}>
             <TouchableOpacity style={close} onPress={() => setHourly(!hourly)}>
               <CloseIcon />
             </TouchableOpacity>
 
-            <Text style={text1}>Hourly leave</Text>
-            <Text style={text2}>
+            <Text style={styles.text1}>Hourly leave</Text>
+            <Text style={styles.text2}>
               {month || monthDefault} {day || dayDefault}
             </Text>
-            <View style={container2}>
-              <TouchableOpacity style={timeTouch} onPress={() => setOpen(true)}>
+            <View style={styles.container2}>
+              <TouchableOpacity
+                style={styles.timeTouch}
+                onPress={() => setOpen(true)}>
                 <CalendarIconWhite
                   iconWidth={Sizes.size17}
                   iconHeight={Sizes.size19}
                   iconColor={'#FCFCFC'}
                 />
 
-                <Text style={jam}>{vremya}</Text>
+                <Text style={styles.jam}>{vremya}</Text>
                 <ArrowBottom2
                   iconWidth={Sizes.size11}
                   iconHeight={Sizes.size7}
@@ -123,7 +112,7 @@ function HourlyBtSheet({
                 />
               </TouchableOpacity>
 
-              <View style={flat}>
+              <View style={styles.flat}>
                 <FlatList
                   data={DATA}
                   renderItem={renderItem}
@@ -131,18 +120,18 @@ function HourlyBtSheet({
                   numColumns={2}
                 />
               </View>
-              <View style={desc}>
+              <View style={styles.desc}>
                 <Input
-                  style={[input, {width: Sizes.size288}]}
+                  style={[styles.input, {width: Sizes.size288}]}
                   placeholder="Description"
                 />
               </View>
             </View>
 
             <TouchableOpacity
-              style={touchable}
+              style={styles.touchable}
               onPress={() => setGreate(!greate)}>
-              <Text style={text}>Book</Text>
+              <Text style={styles.text}>Book</Text>
             </TouchableOpacity>
           </View>
           <DatePicker

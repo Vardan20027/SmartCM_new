@@ -9,7 +9,7 @@ import {Calendar} from 'react-native-calendars';
 import ArrowLeft from '../../../assets/icons/arrowLeft';
 import ArrowRight from '../../../assets/icons/arrowRight';
 
-function DateBtSheet({date, setDate, amsativ, data, setData}) {
+function DateBtSheet({date, setDate, Date, data, setData}) {
   const snapPoints = useMemo(() => ['70%', '80%', '100%'], []);
   const sheetRef = useRef(null);
   const handleSheetChanges = useCallback((index: number) => {
@@ -22,6 +22,10 @@ function DateBtSheet({date, setDate, amsativ, data, setData}) {
         <BottomSheet
           snapPoints={snapPoints}
           ref={sheetRef}
+          enablePanDownToClose={true}
+          onClose={() => {
+            setDate(!date);
+          }}
           index={0}
           onChange={handleSheetChanges}>
           <View style={styles.content}>
@@ -57,7 +61,7 @@ function DateBtSheet({date, setDate, amsativ, data, setData}) {
                 selectedDayTextColor: '#ffffff',
               }}
               onDayPress={day => {
-                setData({...data, [amsativ]: day.dateString});
+                setData({...data, [Date]: day.dateString});
               }}
             />
             <TouchableOpacity

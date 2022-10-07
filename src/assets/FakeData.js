@@ -4,6 +4,7 @@ export const EventsData = [
   {
     id: 0,
     title: 'Teambuilding',
+    type: 'Teambuilding',
     short_description:
       'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
     description:
@@ -16,6 +17,7 @@ export const EventsData = [
   {
     id: 1,
     title: 'Trainings',
+    type: 'Trainings',
     short_description:
       'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
     description:
@@ -28,6 +30,7 @@ export const EventsData = [
   {
     id: 2,
     title: 'Meeting with team',
+    type: 'Meeting with team',
     short_description:
       'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
     description:
@@ -40,6 +43,7 @@ export const EventsData = [
   {
     id: 3,
     title: 'Events',
+    type: 'Events',
     short_description:
       'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
     description:
@@ -52,6 +56,7 @@ export const EventsData = [
   {
     id: 4,
     title: 'Meeting with team',
+    type: 'Meeting with team',
     short_description:
       'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
     description:
@@ -64,6 +69,7 @@ export const EventsData = [
   {
     id: 5,
     title: 'Trainings',
+    type: 'Trainings',
     short_description:
       'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
     description:
@@ -76,6 +82,7 @@ export const EventsData = [
   {
     id: 6,
     title: 'Teambuilding',
+    type: 'Teambuilding',
     short_description:
       'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
     description:
@@ -88,6 +95,7 @@ export const EventsData = [
   {
     id: 7,
     title: 'Trainings',
+    type: 'Trainings',
     short_description:
       'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
     description:
@@ -100,6 +108,7 @@ export const EventsData = [
   {
     id: 8,
     title: 'Events',
+    type: 'Events',
     short_description:
       'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
     description:
@@ -112,6 +121,7 @@ export const EventsData = [
   {
     id: 9,
     title: 'Teambuilding',
+    type: 'Teambuilding',
     short_description:
       'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
     description:
@@ -124,6 +134,7 @@ export const EventsData = [
   {
     id: 10,
     title: 'Meeting with team',
+    type: 'Meeting',
     short_description:
       'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
     description:

@@ -4,13 +4,12 @@ import {Styles} from './style';
 
 function Verification(props) {
   const [code, setCode] = useState('');
-  const confirm = props.route.params.confirm;
   const phone = props.route.params.phone;
+  const confirmation = props.route.params.confirmation;
   const styles = Styles();
   async function confirmCode() {
     try {
-      console.log(code);
-      await confirm.confirm(code);
+      await confirmation.confirm(code);
       props.navigation.navigate('Tab');
     } catch (error) {
       alert('Invalid code.');

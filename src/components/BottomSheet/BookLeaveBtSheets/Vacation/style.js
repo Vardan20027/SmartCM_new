@@ -1,7 +1,7 @@
 import {StyleSheet} from 'react-native';
 import {Fonts, Sizes} from '../../../../assets/RootStyle';
 
-const styles = () => {
+const Styles = () => {
   return StyleSheet.create({
     page: {
       height: '100%',
@@ -138,4 +138,4 @@ const styles = () => {
   });
 };
 
-export {styles};
+export {Styles};

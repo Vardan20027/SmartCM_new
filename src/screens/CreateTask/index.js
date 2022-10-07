@@ -20,35 +20,37 @@ import {CREATE_TASK} from '../../store/actions/types/taskTypes';
 import * as navigation from '../../navigation/RootNavigation';
 
 function CreateTask(props) {
-  const anun = 'project';
-  const amsativ = 'date';
+  const Project = 'project';
+  const Date = 'date';
   const dur = 'duration';
   const task = props.route.params.task;
-  const setTask = props.route.params.setTask;
   const [project, setProject] = useState(false);
   const [date, setDate] = useState(false);
   const [duration, setDuration] = useState(false);
-  const [great, setGreat] = useState(false);
+  const [color, setColor] = useState('');
   const [data, setData] = useState({});
-  console.log(1111, data);
-  const [value, setValue] = useState('');
+  data.color = color;
+  console.log(data);
+  const onSubmit = () => {
+    setColor();
+    setData({});
+  };
   const styles = Styles();
   useEffect(() => {
-    if (date || project || duration || great) {
+    if (date || project || duration) {
       props.navigation.setOptions({
         tabBarStyle: {display: 'none'},
       });
     }
-    if (!project && !date && !duration && !great) {
+    if (!project && !date && !duration) {
       props.navigation.setOptions({
         tabBarStyle: {display: 'flex'},
       });
     }
-    setData({...data, ['id']: _.uniqueId});
-  }, [project, date, duration, great]);
+  }, [project, date, duration]);
   useMemo(() => {
     setData({});
-  }, [task]);
+  }, []);
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
@@ -59,8 +61,8 @@ function CreateTask(props) {
           style={styles.input}
           {...props}
           placeholder="Title*"
-          onChangeText={setValue}
-          value={value}
+          value={data.title}
+          onChangeText={text => setData({...data, title: text})}
         />
       </Pressable>
 
@@ -98,9 +100,10 @@ function CreateTask(props) {
       <TouchableOpacity
         style={styles.button}
         onPress={() => {
+          setData({...data, ['id']: _.uniqueId});
           dispatch(CREATE_TASK, data);
-          console.log(2222, data);
           navigation.navigate('Home');
+          onSubmit();
         }}>
         <Text style={styles.button_text}>Create</Text>
       </TouchableOpacity>
@@ -110,14 +113,15 @@ function CreateTask(props) {
           setProject={setProject}
           data={data}
           setData={setData}
-          anun={anun}
+          Project={Project}
+          setColor={setColor}
         />
       ) : null}
       {date ? (
         <DateBtSheet
           date={date}
           setDate={setDate}
-          amsativ={amsativ}
+          Date={Date}
           data={data}
           setData={setData}
         />

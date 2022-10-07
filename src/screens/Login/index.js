@@ -32,7 +32,6 @@ const LoginScreen = ({navigation}) => {
   });
 
   const [f, setF] = useState(1);
-  const [confirm, setConfirm] = useState(null);
   const [phone, setPhone] = useState('');
   const [isSecureEntry, setIsSecureEntry] = useState(true);
 
@@ -42,9 +41,7 @@ const LoginScreen = ({navigation}) => {
       alert("Phone number couldn't be empty");
     } else {
       const confirmation = await auth().signInWithPhoneNumber(phoneNumber);
-      setConfirm(confirmation);
-      console.log(confirm);
-      navigation.navigate('Verification', {confirm, phone});
+      navigation.navigate('Verification', {phone, confirmation});
     }
   }
 

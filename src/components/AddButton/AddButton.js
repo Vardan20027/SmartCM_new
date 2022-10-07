@@ -7,7 +7,7 @@ import {
   View,
 } from 'react-native';
 import PlusIcon from '../../assets/icons/plusIcon';
-import {styles} from './AddStyle';
+import {Styles} from './AddStyle';
 import _ from 'lodash';
 import TasksIcon from '../../assets/icons/tasksIcon';
 import EventsIcon from '../../assets/icons/eventsIcon';
@@ -29,7 +29,7 @@ function AddButton({
   sizeStyle,
   setOneRender,
 }) {
-  const {pressable, button, secondaryButton} = styles();
+  const styles = Styles();
   const [event, setEvent] = useState();
   const [task, setTask] = useState();
   const [leave, setLeave] = useState();
@@ -37,12 +37,7 @@ function AddButton({
     setOneRender(true);
   }, []);
   return (
-    <View
-      style={{
-        position: 'absolute',
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}>
+    <View style={styles.container}>
       <Animated.View style={{position: 'absolute', left: tasksX, top: tasksY}}>
         <TouchableOpacity
           onPress={() => {
@@ -50,7 +45,7 @@ function AddButton({
             RootNavigation.navigate('CreateTask', {task, setTask});
             handlePress();
           }}
-          style={secondaryButton}>
+          style={styles.secondaryButton}>
           <TasksIcon />
         </TouchableOpacity>
       </Animated.View>
@@ -63,7 +58,7 @@ function AddButton({
             RootNavigation.navigate('CreateEvent', {event, setEvent});
             handlePress();
           }}
-          style={secondaryButton}>
+          style={styles.secondaryButton}>
           <EventsIcon />
         </TouchableOpacity>
       </Animated.View>
@@ -74,12 +69,12 @@ function AddButton({
             RootNavigation.navigate('BookLeave', {leave, setLeave});
             handlePress();
           }}
-          style={secondaryButton}>
+          style={styles.secondaryButton}>
           <PlaneIcon />
         </TouchableOpacity>
       </Animated.View>
 
-      <Animated.View style={[button, sizeStyle]}>
+      <Animated.View style={[styles.button, sizeStyle]}>
         <Pressable
           onPress={() => {
             setEvent(_.uniqueId());
@@ -87,17 +82,14 @@ function AddButton({
             setLeave(_.uniqueId());
             handlePress();
           }}
-          style={pressable}>
+          style={styles.polygon_press}>
           <ImageBackground
             source={
               f
                 ? require('../../assets/images/Polygon2.png')
                 : require('../../assets/images/Polygon1.png')
             }
-            style={{
-              width: Sizes.size100,
-              height: Sizes.size90,
-            }}
+            style={styles.polygon}
           />
 
           <Animated.View

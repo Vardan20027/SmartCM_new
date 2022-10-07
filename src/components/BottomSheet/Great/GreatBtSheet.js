@@ -5,8 +5,7 @@ import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import GreatIcon from '../../../assets/icons/greatIcon';
 import CloseIcon from '../../../assets/icons/closeIcon';
 import * as RootNavigation from '../../../navigation/RootNavigation';
-import {Sizes} from '../../../assets/RootStyle';
-import {styles} from './style';
+import {Styles} from './style';
 
 function GreatBtSheet({
   great,
@@ -21,24 +20,26 @@ function GreatBtSheet({
   setRefresh,
   type,
   setType,
+  onSubmit,
 }) {
-  const {page, container, content, text, close, text1} = styles();
+  const styles = Styles();
   const snapPoints = useMemo(() => ['45%', '80%', '100%'], []);
   const sheetRef = useRef(null);
   const handleSheetChanges = useCallback((index: number) => {
     // console.log('handleSheetChanges', index);
   }, []);
   return (
-    <GestureHandlerRootView style={page}>
-      <View style={container}>
+    <GestureHandlerRootView style={styles.page}>
+      <View style={styles.container}>
         <BottomSheet
           snapPoints={snapPoints}
           ref={sheetRef}
           index={0}
           onChange={handleSheetChanges}>
           <TouchableOpacity
-            style={close}
+            style={styles.close}
             onPress={() => {
+              onSubmit();
               great && setGreat(!great);
               greate && setGreate(!greate);
               vacation && setVacation(!vacation);
@@ -49,10 +50,10 @@ function GreatBtSheet({
             }}>
             <CloseIcon />
           </TouchableOpacity>
-          <View style={content}>
+          <View style={styles.content}>
             <GreatIcon />
-            <Text style={text}>Great !</Text>
-            <Text style={text1}>
+            <Text style={styles.text}>Great !</Text>
+            <Text style={styles.text1}>
               {great
                 ? 'Event successfully created.'
                 : 'Time successfully booked.'}

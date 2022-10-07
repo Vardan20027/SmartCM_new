@@ -1,12 +1,12 @@
 import React from 'react';
 import {View} from 'react-native';
 import {
-  VictoryChart,
   VictoryAxis,
+  VictoryChart,
   VictoryLine,
   VictoryScatter,
 } from 'victory-native';
-import {Fonts, Sizes} from '../../../../assets/RootStyle';
+import {Sizes} from '../../../../assets/RootStyle';
 import {Styles} from './style';
 
 function VictoryProgress(props) {

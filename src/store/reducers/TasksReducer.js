@@ -26,12 +26,10 @@ export default function reducer(state = defaultState, {type, payload}) {
     }
     case UPDATE_TASK:
       const array = state.list.map(object => {
-        if (object.id === payload.id) {
+        if (object?.id === payload?.id) {
           return {
             ...object,
-            date: payload.date,
-            project: payload.project,
-            duration: payload.duration,
+            ...payload,
           };
         } else {
           return object;

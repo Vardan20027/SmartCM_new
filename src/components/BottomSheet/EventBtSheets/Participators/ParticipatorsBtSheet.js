@@ -75,6 +75,10 @@ function ParticipatorsBtSheet({
         <BottomSheet
           snapPoints={snapPoints}
           ref={sheetRef}
+          enablePanDownToClose={true}
+          onClose={() => {
+            setParticipators(!participators);
+          }}
           index={0}
           onChange={handleSheetChanges}>
           <View style={content}>

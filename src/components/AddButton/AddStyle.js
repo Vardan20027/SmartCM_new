@@ -1,8 +1,14 @@
-import {StyleSheet} from 'react-native';
-import {Sizes} from '../../assets/RootStyle';
+import { StyleSheet } from "react-native";
+import { Sizes } from "../../assets/RootStyle";
 
-const styles = () => {
+const Styles = () => {
   return StyleSheet.create({
+    container: {
+      position: 'absolute',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+
     button: {
       alignItems: 'center',
       justifyContent: 'center',
@@ -16,11 +22,15 @@ const styles = () => {
       borderRadius: Sizes.size24,
       backgroundColor: '#347474',
     },
-    pressable: {
+    polygon_press: {
       alignItems: 'center',
       justifyContent: 'center',
       width: Sizes.size77,
       height: Sizes.size60,
+    },
+    polygon: {
+      width: Sizes.size100,
+      height: Sizes.size90,
     },
   });
 };

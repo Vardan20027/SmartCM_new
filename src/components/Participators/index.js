@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 import CheckBox from '@react-native-community/checkbox';
 import {FlatList, Text, TouchableOpacity, View} from 'react-native';
-import {styles} from './style';
+import {Styles} from './style';
 
 function Participators({prts, data, setData}) {
   const [isActive, setIsActive] = useState(false);
-  const {container, view, viewText} = styles();
+  const styles = Styles();
   const handleParticipators = (item, key, name) => {
     setIsActive(item.id);
     setData({...data, [key]: name});
@@ -29,12 +29,12 @@ function Participators({prts, data, setData}) {
     },
   ];
   const renderItem = ({item}) => (
-    <View style={container}>
+    <View style={styles.container}>
       <TouchableOpacity
-        style={view}
+        style={styles.view}
         onPress={() => handleParticipators(item, prts, item.title)}>
         <CheckBox value={isActive === item.id} />
-        <Text style={viewText}>{item.title}</Text>
+        <Text style={styles.viewText}>{item.title}</Text>
       </TouchableOpacity>
     </View>
   );

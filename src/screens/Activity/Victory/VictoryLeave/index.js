@@ -7,7 +7,7 @@ import {
   VictoryStack,
 } from 'victory-native';
 import UnreadIcon from '../../../../assets/icons/unreadIcon';
-import {Fonts, Sizes} from '../../../../assets/RootStyle';
+import {Sizes} from '../../../../assets/RootStyle';
 import {Styles} from './style';
 
 function VictoryLeave(props) {

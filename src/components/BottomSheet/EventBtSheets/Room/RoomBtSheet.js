@@ -7,7 +7,7 @@ import CheckBox from '@react-native-community/checkbox';
 import CloseIcon from '../../../../assets/icons/closeIcon';
 import {Sizes} from '../../../../assets/RootStyle';
 
-function RoomBtSheet({setRoom, room, senyak, data, setData}) {
+function RoomBtSheet({setRoom, room, Room, data, setData}) {
   const [isActive, setIsActive] = useState(false);
   const snapPoints = useMemo(() => ['50%', '80%', '100%'], []);
   const sheetRef = useRef(null);
@@ -44,7 +44,7 @@ function RoomBtSheet({setRoom, room, senyak, data, setData}) {
     <>
       <TouchableOpacity
         style={view}
-        onPress={() => handleRoom(item, senyak, item.title)}>
+        onPress={() => handleRoom(item, Room, item.title)}>
         <CheckBox value={isActive === item.id} />
         <Text style={viewText}>{item.title}</Text>
       </TouchableOpacity>
@@ -58,6 +58,10 @@ function RoomBtSheet({setRoom, room, senyak, data, setData}) {
           snapPoints={snapPoints}
           ref={sheetRef}
           index={0}
+          enablePanDownToClose={true}
+          onClose={() => {
+            setRoom(!room);
+          }}
           onChange={handleSheetChanges}>
           <View style={content}>
             <TouchableOpacity style={close} onPress={() => setRoom(!room)}>

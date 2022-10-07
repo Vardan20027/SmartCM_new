@@ -1,96 +1,15 @@
 import React from 'react';
 import {View, Text, TouchableOpacity, FlatList} from 'react-native';
 import VictoryTasks from '../Victory/VictoryTasks';
-import {Fonts, Sizes} from '../../../assets/RootStyle';
 import * as RootNavigation from '../../../navigation/RootNavigation';
 import {Styles} from './style';
 import {TaskStyles} from '../../../components/Home/Tasks/style';
 import CheckboxComponent from '../../../components/Checkbox';
 import moment from 'moment';
+import {useSelector} from 'react-redux';
 
 function HistoryTasks(props) {
-  const DATA = [
-    {
-      id: 11,
-      title: 'Create Task',
-      date: '2022-09-12',
-      duration: '15 minute',
-      project: 'Bob AI',
-      color: '#38A98E',
-    },
-    {
-      id: 12,
-      title: 'Research Dashboard',
-      date: '2022-03-10',
-      duration: ' 15 minute',
-      project: 'New City',
-      color: '#FF8A9F',
-    },
-    {
-      id: 13,
-      title: 'Feedbacks',
-      date: '2022-01-30',
-      duration: ' 15 minute',
-      project: 'Bob AI',
-      color: '#38A98E',
-    },
-    {
-      id: 14,
-      title: 'Sign up',
-      date: '2022-05-14',
-      duration: ' 15 minute',
-      project: 'Mapplo',
-      color: '#39B9CE',
-    },
-    {
-      id: 15,
-      title: 'Research Dashboard',
-      date: '2022-06-07',
-      duration: ' 15 minute',
-      project: 'New City',
-      color: '#FF8A9F',
-    },
-    {
-      id: 16,
-      title: 'Sign up',
-      date: '2022-05-12',
-      duration: ' 15 minute',
-      project: 'Mapplo',
-      color: '#39B9CE',
-    },
-    {
-      id: 17,
-      title: 'Create Task',
-      date: '2022-09-22',
-      duration: ' 15 minute',
-      project: 'Bob AI',
-      color: '#38A98E',
-    },
-    {
-      id: 18,
-      title: 'Feedbacks',
-      date: '2022-05-08',
-      duration: ' 15 minute',
-      project: 'Bob AI',
-      color: '#38A98E',
-    },
-    {
-      id: 19,
-      title: 'Sign up',
-      date: '2022-07-12',
-      duration: ' 15 minute',
-      project: 'Mapplo',
-      color: '#39B9CE',
-    },
-    {
-      id: 20,
-      title: 'Create Task',
-      date: '2022-10-12',
-      duration: ' 15 minute',
-      project: 'Bob AI',
-      color: '#38A98E',
-    },
-  ];
+  const DATA = useSelector(state => state.tasks.list);
   const styles = Styles();
   const taskStyles = TaskStyles();
   const renderItem = ({item}) => (

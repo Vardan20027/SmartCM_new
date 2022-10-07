@@ -11,7 +11,6 @@ import CalendarComp from '../Calendar';
 import * as RootNavigation from '../../../navigation/RootNavigation';
 import moment from 'moment';
 import CheckboxComponent from '../../Checkbox';
-import {useSelector} from 'react-redux';
 
 function Tasks(props) {
   const ref = useRef(null);

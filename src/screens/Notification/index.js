@@ -234,18 +234,18 @@ const NotificationsScreen = props => {
         tabBarStyle: {display: 'flex'},
       });
     }
-  }, [dayOff, hourly, remotely, vacation]);
+  }, [dayOff, hourly, props.navigation, remotely, vacation]);
 
-  // const ListEmptyView = ({item}) => {
-  //   return (
-  //     <View>
-  //       <View style={{margin: Sizes.size10}}>
-  //         <EmptyNotifIcon />
-  //       </View>
-  //       <Text>No notifications</Text>
-  //     </View>
-  //   );
-  // };
+  const ListEmptyView = ({item}) => {
+    return (
+      <View>
+        <View style={{margin: Sizes.size10}}>
+          <EmptyNotifIcon />
+        </View>
+        <Text>No notifications</Text>
+      </View>
+    );
+  };
   return (
     <>
       <View style={styles.container}>

@@ -1,7 +1,7 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View} from 'react-native';
 import {VictoryBar, VictoryAxis} from 'victory-native';
-import {Fonts, Sizes} from '../../../../assets/RootStyle';
+import {Sizes} from '../../../../assets/RootStyle';
 import {Styles} from './style';
 
 function Victory(props) {

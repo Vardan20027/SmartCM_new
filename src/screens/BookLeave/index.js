@@ -1,4 +1,4 @@
-import React, {useState, useMemo, useEffect} from 'react';
+import React, {useEffect, useMemo, useState} from 'react';
 import {KeyboardAvoidingView, Text, TouchableOpacity, View} from 'react-native';
 import {Styles} from './style';
 import {Input} from '../../components/Input';
@@ -15,17 +15,15 @@ import moment from 'moment';
 
 function BookLeave(props) {
   const currentDate = moment().format('YYYY-MM-DD');
-  const tesak = 'Type';
+  const Type = 'Type';
   const [greate, setGreate] = useState(false);
   const [type, setType] = useState(false);
   const [hourly, setHourly] = useState(false);
   const [refresh, setRefresh] = useState(true);
-
   const [data, setData] = useState({});
   const [or, setOr] = useState([]);
   const [itemData, setItemData] = useState();
   const leave = props.route.params.leave;
-  const setLeave = props.route.params.setLeave;
   const handleBtSheet = item => {
     if (item === 0) {
       setHourly(!hourly);
@@ -55,23 +53,22 @@ function BookLeave(props) {
   }, [leave]);
   return (
     <KeyboardAvoidingView style={styles.container}>
-      <Text style={styles.text}>Book your leave time</Text>
-      <Text style={styles.subText}>Choose book leave type*</Text>
+      <Text style={styles.title}>Book your leave time</Text>
+      <Text style={styles.subtitle}>Choose book leave type*</Text>
 
       <TouchableOpacity
-        style={styles.inpView}
+        style={styles.input_container}
         onPress={() => {
           setType(!type);
         }}>
         <Text style={styles.input}>{data.Type || 'Type'}</Text>
-        <View style={styles.touch}>
+        <View style={styles.arrow}>
           <ArrowBottom />
         </View>
       </TouchableOpacity>
 
       <Calendar
         style={styles.calendar}
-        markingType={'period'}
         theme={{
           textSectionTitleColor: '#347474',
           backgroundColor: '#F5F5F5',
@@ -122,7 +119,7 @@ function BookLeave(props) {
       <TouchableOpacity
         style={styles.button}
         onPress={() => handleBtSheet(itemData)}>
-        <Text style={styles.butText}>Create</Text>
+        <Text style={styles.button_text}>Create</Text>
       </TouchableOpacity>
       {type ? (
         <TypeBtSheet
@@ -132,7 +129,7 @@ function BookLeave(props) {
           itemData={itemData}
           setItemData={setItemData}
           data={data}
-          tesak={tesak}
+          Type={Type}
         />
       ) : null}
       {greate ? (

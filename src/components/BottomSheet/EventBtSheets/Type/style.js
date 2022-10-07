@@ -10,7 +10,7 @@ const styles = () => {
     },
     container: {
       flex: 1,
-      padding: 24,
+      padding: Sizes.size24,
       backgroundColor: 'rgba(52, 52, 52, 0.8)',
     },
     content: {

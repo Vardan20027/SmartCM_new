@@ -31,6 +31,10 @@ const Styles = () => {
       fontFamily: Fonts.regular,
       color: '#1D1D1D',
     },
+    input_default: {
+      fontFamily: Fonts.regular,
+      color: '#818195',
+    },
     inpView: {
       marginTop: Sizes.size3,
       alignItems: 'center',

@@ -93,6 +93,10 @@ function OrgBtSheet({organizer, setOrganizer, org, data, setData}) {
         <BottomSheet
           snapPoints={snapPoints}
           ref={sheetRef}
+          enablePanDownToClose={true}
+          onClose={() => {
+            setOrganizer(!organizer);
+          }}
           index={0}
           onChange={handleSheetChanges}>
           <View style={content}>
